@@ -1,38 +1,49 @@
-import { ProjectCard } from "./commons/ProjectCard";
-import housing from "../assets/housing.jpg"
-import innovate from "../assets/innovate.jpg"
-import money from "../assets/money.jpg"
+import ProjectsSlider from "./commons/ProjectSlider";
+import land from "../assets/land.jpg"
+import stead from "../assets/stead.jpg"
+import farm from "../assets/farm.jpg"
 
-const Ecosystem = [
+const projectsData = [
     {
-        "image": housing,
-        "title": "Stead Housing",
-        "category": "Housing",
-        "subtitle": "Modern Living, Simplified.",
-        "description": "At Stead Housing, we are more than just accommodation providers—we are innovators, problem-solvers, and community builders dedicated to transforming urban living. With a deep commitment to affordability, flexibility, and convenience, we offer diverse accommodation solutions tailored for students, professionals, and anyone seeking a seamless home experience. Empowering residents with effortless rent and utility management through our digital platforms, alongside exclusive access to vital recreational facilities, we ensure a comfortable, connected, and future-ready lifestyle."
+        id: 1,
+        title: 'Stead Towers',
+        imgSrc: stead,
+        category: 'Stead Towers',
     },
     {
-        "image": innovate,
-        "title": "Stead Innovate",
-        "category": "Innovate",
-        "subtitle": "Solving Problems, Simply.",
-        "description": "At Stead Innovations, we're more than just software developers—we're innovators, problem-solvers, and growth partners dedicated to transforming how businesses and individuals tackle challenges. With a deep commitment to efficiency, customization, and impact, we offer diverse software solutions tailored for companies of all sizes, entrepreneurs, and anyone seeking a seamless digital experience. Empowering our clients with custom-built applications, streamlined workflows, and intelligent automation through our cutting-edge platforms, we ensure a productive, connected, and future-ready journey."
+        id: 2,
+        title: 'Coastal Defenses',
+        imgSrc: land,
+        category: 'Stead Land',
     },
     {
-        "image": money,
-        "title": "Stead Payments",
-        "category": "Payments",
-        "subtitle": "Global Money, Simplified.",
-        "description": "At Stead Payments, we're more than just a transfer service—we're innovators, problem-solvers, and global connectors dedicated to transforming how businesses and individuals manage cross-border finances. With a deep commitment to security, speed, and transparency, we offer diverse payment solutions tailored for international trade, remittances, and anyone seeking a seamless flow of funds. Empowering our clients with secure transactions, competitive exchange rates, and real-time tracking through our advanced digital platforms, we ensure a reliable, efficient, and future-ready financial experience."
-    }
-]
+        id: 3,
+        title: 'Green Farmlands',
+        imgSrc: farm,
+        category: 'Stead Farms',
+    },
+];
+
+const statItems = [
+    { value: '200+', label: 'Clients Served' },
+    { value: '500+', label: 'Projects Completed' },
+    { value: '30+', label: 'Sectors Covered' },
+];
+
 
 export const Projects = () => (
-
-    <div className="w-[92.1875%] h-[2628px] flex items-center gap-12 flex-col">
-        <p className="font-bold w-fit text-[40px]">Our Ecosystem</p>
-        <div className="flex flex-col gap-12">
-            {Ecosystem.map((data) => <ProjectCard data={data}/>)}
+    <div className="w-[92.1875%] mt-[99px] h-[783.189px] flex items-center gap-12 flex-col">
+        <p className="font-bold w-fit text-[40px]">Projects</p>
+        <div className="flex flex-col w-full gap-12">
+            <ProjectsSlider projectsData={projectsData} />
+        </div>
+        <div className="flex w-[79.24%] gap-8 justify-between text-center">
+            {statItems.map(stat => (
+                <div className="flex flex-col gap-2" key={stat.label}>
+                    <p className="text-5xl font-bold">{stat.value}</p>
+                    <p className="text-orange-500">{stat.label}</p>
+                </div>
+            ))}
         </div>
     </div>
 )
