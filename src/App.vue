@@ -11,8 +11,10 @@
         <Projects />
         <MeetTheTeam />
         <FAQ />
-        <CTA />
-        <Footer />
+        <div class="flex w-full items-center gap-7 flex-col">
+            <CTA />
+            <Footer />
+        </div>
     </div>
 </template>
 
