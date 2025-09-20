@@ -1,10 +1,8 @@
 <template>
     <div class="absolute w-full h-full overflow-hidden" ref="parentRef">
-        <img
-            src="https://res.cloudinary.com/dahlcyt3t/image/upload/v1758144914/glass-texture_gdhfgl.png"
-            class="absolute z-10 w-full h-full object-cover opacity-100"
-            alt="Glass texture"
-        />
+        <div
+            class="glass w-full h-full top-0 left-0 z-10 before:!opacity-100"
+        ></div>
         <div class="relative w-full h-full">
             <div
                 class="absolute transition-all duration-3000 ease-in-out"
@@ -79,6 +77,7 @@
 
 <script setup>
 import { ref, onMounted, onUnmounted } from "vue";
+import { GlassPattern } from "../../assets/Icons.vue";
 
 const parentRef = ref(null);
 const div1Style = ref({ top: 50, left: 100, size: 400 });

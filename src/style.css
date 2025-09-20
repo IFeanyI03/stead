@@ -8,8 +8,9 @@ body {
 }
 
 .glass {
-    position: relative; /* Necessary for positioning the pseudo-element */
+    position: absolute; /* Necessary for positioning the pseudo-element */
     isolation: isolate; /* Prevents pseudo-element from appearing above content */
+    background: transparent;
 }
 
 .glass::before {
@@ -22,7 +23,7 @@ body {
     z-index: -1; /* Places the background behind the content */
 
     background-image: url("https://res.cloudinary.com/dahlcyt3t/image/upload/v1758144914/glass-texture_gdhfgl.png");
-    background-size: cover;
+    /* background-size: cover; */
     background-position: center;
 
     opacity: 0.4; /* Apply opacity only to the background */

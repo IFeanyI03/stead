@@ -1,9 +1,9 @@
 <template>
     <div
-        class="relative flex flex-col gap-[104px] items-center bg-white h-fit w-full"
+        class="relative flex flex-col gap-16 md:gap-[104px] items-center bg-white h-fit w-full"
     >
         <Header />
-        <div class="flex w-full flex-col">
+        <div class="flex w-full h-full flex-col">
             <Hero />
             <Partnership />
         </div>

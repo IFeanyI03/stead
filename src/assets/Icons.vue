@@ -12,6 +12,15 @@ export const SteadLogo = defineComponent({
     </svg>`,
 });
 
+export const GlassPattern = defineComponent({
+    props: ["className"],
+    template: `<img
+        src="https://res.cloudinary.com/dahlcyt3t/image/upload/v1758144914/glass-texture_gdhfgl.png"
+        :class="className || 'absolute z-10 w-full h-full object-cover bg-no-repeat bg-size[cover] opacity-100'"
+        alt="Glass texture"
+    />`,
+});
+
 export const HaburgerMenu = defineComponent({
     props: ["className"],
     template: `<svg xmlns="http://www.w3.org/2000/svg" width="18" height="14" viewBox="0 0 18 14" :class="className || 'h-4.5 w-3.5'" fill="none">

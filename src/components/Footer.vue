@@ -1,7 +1,8 @@
 <template>
     <footer
-        class="w-full glass [mask-image:linear-gradient(to_bottom,transparent,transparent_1.5%,black_20%)]"
+        class="w-full relative [mask-image:linear-gradient(to_bottom,transparent,transparent_1.5%,black_20%)]"
     >
+        <div class="glass w-full h-full"></div>
         <div
             class="w-[92.1875%] mx-auto h-full flex items-center md:items-start flex-col py-[76px] pb-[38px] gap-10 md:gap-[136px]"
         >
@@ -30,7 +31,7 @@
 </template>
 
 <script setup>
-import { SteadLogo } from "../assets/Icons.vue";
+import { GlassPattern, SteadLogo } from "../assets/Icons.vue";
 
 const FooterLinkColumn = {
     props: ["title", "links"],
