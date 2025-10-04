@@ -6,10 +6,8 @@
             :class="[
                 'flex items-center  px-[17.5px] md:px-5 md:w-[calc(92.03%_+_40px)] w-[calc(100%_-_35px)] mx-auto justify-between md:py-[20px] h-12.5 md:h-fit rounded-[50px] transition-all duration-250 ease-in-out',
                 {
-                    // Unscrolled State (Transparent header)
                     ' text-black dark:text-white bg-transparent': !scrolled,
 
-                    // Scrolled State (Blurry/Solid header)
                     ' dark:text-black text-white bg-[#000000] dark:bg-[#FFFFFF] shadow-2xl':
                         scrolled,
                 },
@@ -135,7 +133,7 @@
 
         <div
             v-if="sidebarOpen"
-            class="fixed inset-0 bg-black dark:bg-white opacity-50 z-50 md:hidden"
+            class="fixed inset-0 z-50 md:hidden"
             @click="closeSidebar"
         ></div>
     </div>
@@ -146,7 +144,6 @@ import { ref, onMounted, onUnmounted } from "vue";
 import { HaburgerMenu, SteadLogo } from "../assets/Icons.vue";
 import Button from "./commons/Button.vue";
 
-// --- THEME LOGIC ---
 const isDarkMode = ref(false);
 let mediaQuery;
 
@@ -156,46 +153,24 @@ const updateTheme = (event) => {
         : window.matchMedia("(prefers-color-scheme: dark)").matches;
 };
 
-// Function to handle the complex fill logic for Logo/Hamburger
 const getLogoFill = (scrolled, isDarkMode) => {
-    // 1. Scrolled State (Header has a contrasting background color)
     if (scrolled) {
-        // Scrolled background: BLACK (in light mode) / WHITE (in dark mode)
-        // Must contrast the header background.
-        if (!isDarkMode) return "white"; // Dark Mode (Header is white) -> Logo is black
-        if (isDarkMode) return "black"; // Light Mode (Header is black) -> Logo is white
+        if (!isDarkMode) return "white";
+        if (isDarkMode) return "black";
     }
 
-    // 2. Unscrolled State (Header is transparent, relying on the background page color)
-    // Background page text: BLACK (in light mode) / WHITE (in dark mode)
-    // Logo color should match the surrounding text color for this transparent header.
-    if (isDarkMode) return "white"; // Dark Mode (Text is white) -> Logo is white
-    if (!isDarkMode) return "white"; // Light Mode (Text is black) -> Logo is black
+    if (isDarkMode) return "white";
+    if (!isDarkMode) return "white";
 };
 
-// --- SCROLL LOGIC (MODIFIED) ---
 const scrolled = ref(false);
 
 const handleScroll = () => {
-    // Determine the scroll threshold based on screen size
     let scrollThreshold = 0;
 
-    // // Check for medium screen breakpoint (Tailwind default is 768px)
-    // if (window.innerWidth >= 768) {
-    //     // MD and up: Use a fixed value (e.g., 213px, or 500px, adjust as needed)
-    //     // Since you mentioned h-213, let's use a reasonable equivalent like 213px
-    //     // NOTE: If h-213 is a specific theme value, replace 213 with that value.
-    //     scrollThreshold = 190 * 4;
-    // } else {
-    //     // Mobile/Small screens: Use full viewport height (h-screen)
-    //     scrollThreshold = window.innerHeight;
-    // }
-
-    // Set scrolled state
     scrolled.value = window.scrollY > scrollThreshold;
 };
 
-// --- SIDEBAR LOGIC (EXISTING) ---
 const sidebarOpen = ref(false);
 
 const toggleSidebar = () => {
@@ -208,26 +183,19 @@ const closeSidebar = () => {
     document.body.style.overflow = "";
 };
 
-// --- LIFECYCLE HOOKS ---
 onMounted(() => {
-    // 1. Initialize theme status
     mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
-    updateTheme(); // Initial check
+    updateTheme();
 
-    // 2. Add listener for system theme changes
     mediaQuery.addEventListener("change", updateTheme);
 
-    // 3. Add scroll listener
-    // NOTE: Need to call handleScroll once on mount to set initial state if page loads scrolled
     window.addEventListener("scroll", handleScroll);
     handleScroll();
 
-    // 4. Add resize listener to update the scroll threshold dynamically
     window.addEventListener("resize", handleScroll);
 });
 
 onUnmounted(() => {
-    // Clean up all listeners
     mediaQuery.removeEventListener("change", updateTheme);
     window.removeEventListener("scroll", handleScroll);
     window.removeEventListener("resize", handleScroll);

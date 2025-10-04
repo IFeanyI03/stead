@@ -44,23 +44,23 @@ import ceoPortrait from "../assets/ceo-portrait.jpg";
 
 const teamData = [
     {
-        imageSrc: ceoPortrait,
+        imageSrc: "",
         name: "Ted Bankong Boluwatife",
         title: "Chief Executive Officer (CEO)",
         bio: "As CEO of Stead, I'm driven by a singular vision: to simplify complex processes and enhance everyday experiences across housing, software, and finance. My passion lies in building bridges connecting people to ideal homes with Stead Housing, empowering businesses through innovative software via Stead Innovations, and enabling seamless global transactions with Stead Payments. I lead with a commitment to integrity, user-centric design, and continuous innovation, striving to build trust and shape a more connected, efficient future for all our users.",
     },
     {
-        imageSrc: ceoPortrait,
+        imageSrc: "",
         name: "Ifeanyi Aghasili Yahweh",
         title: "Chief Technology Officer (CTO)",
         bio: "As CTO of Stead, I'm passionate about leveraging technology to drive innovation and improve user experiences. My focus is on building scalable, secure, and efficient systems that empower our teams and delight our users. I believe in a collaborative approach to problem-solving and am committed to fostering a culture of continuous learning and improvement.",
     },
-    {
-        imageSrc: ceoPortrait,
-        name: "Alex Johnson",
-        title: "Chief Operating Officer (COO)",
-        bio: "As COO of Stead, I'm dedicated to optimizing our operations and ensuring that we deliver on our promises to our users. My background in process improvement and project management allows me to identify inefficiencies and implement solutions that drive results. I'm a firm believer in the power of teamwork and communication to achieve our goals.",
-    },
+    // {
+    //     imageSrc: ceoPortrait,
+    //     name: "Alex Johnson",
+    //     title: "Chief Operating Officer (COO)",
+    //     bio: "As COO of Stead, I'm dedicated to optimizing our operations and ensuring that we deliver on our promises to our users. My background in process improvement and project management allows me to identify inefficiencies and implement solutions that drive results. I'm a firm believer in the power of teamwork and communication to achieve our goals.",
+    // },
 ];
 
 const activeIndex = ref(0);

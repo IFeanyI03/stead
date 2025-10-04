@@ -2,10 +2,10 @@
     <footer
         class="w-full relative [mask-image:linear-gradient(to_bottom,transparent,transparent_1.5%,black_20%)] text-black dark:text-white"
     >
-        <div class="glass w-full h-full dark:invert"></div>
+        <div class="glass z-10 w-full h-full dark:invert"></div>
 
         <div
-            class="w-[92.1875%] mx-auto h-full flex items-center md:items-start flex-col py-[76px] pb-[38px] gap-10 md:gap-[136px]"
+            class="w-[92.1875%] z-20 relative mx-auto h-full flex items-center md:items-start flex-col py-[76px] pb-[38px] gap-10 md:gap-[136px]"
         >
             <div
                 class="flex w-full flex-col gap-10 md:flex-row justify-between items-center md:items-start"
@@ -39,9 +39,7 @@
 
 <script setup>
 import { ref, onMounted, onUnmounted } from "vue";
-import { SteadLogo } from "../assets/Icons.vue"; // Only keep necessary imports
-
-// --- THEME LOGIC: Detects and sets theme status (REQUIRED for dark/light mode functionality) ---
+import { SteadLogo } from "../assets/Icons.vue";
 const isDarkMode = ref(false);
 let mediaQuery;
 
@@ -51,13 +49,10 @@ const updateTheme = (event) => {
         : window.matchMedia("(prefers-color-scheme: dark)").matches;
 };
 
-// Simplified Logo Fill Logic for the static footer
-// The footer text is set to black in light mode (default) and white in dark mode.
 const getLogoFill = (isDarkMode) => {
     return isDarkMode ? "white" : "black";
 };
 
-// --- LIFECYCLE HOOKS for Theme ---
 onMounted(() => {
     mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
     updateTheme();
@@ -68,7 +63,6 @@ onUnmounted(() => {
     mediaQuery.removeEventListener("change", updateTheme);
 });
 
-// --- STATIC DATA AND SUB-COMPONENT (REQUIRED for footer content) ---
 const FooterLinkColumn = {
     props: ["title", "links"],
     template: `

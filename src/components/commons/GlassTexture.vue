@@ -14,10 +14,10 @@
                 }"
             >
                 <div
-                    class="bg-red-900 mix-blend-darken blur-md rounded-full w-2/3 h-2/3 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+                    class="bg-[#E0490E] mix-blend-darken blur-2xl rounded-full w-2/3 h-2/3 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
                 ></div>
                 <div
-                    class="bg-orange-700 w-full h-full blur-[100px] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded-full"
+                    class="bg-[#E0490E] w-full h-full blur-[100px] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded-full"
                 ></div>
             </div>
 
@@ -31,10 +31,10 @@
                 }"
             >
                 <div
-                    class="bg-red-900 mix-blend-darken blur-md rounded-full w-2/3 h-2/3 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+                    class="bg-[#E0490E] mix-blend-darken blur-md rounded-full w-2/3 h-2/3 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
                 ></div>
                 <div
-                    class="bg-orange-700 w-full h-full blur-[100px] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded-full"
+                    class="bg-[#E0490E] w-full h-full blur-[100px] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded-full"
                 ></div>
             </div>
 
@@ -48,10 +48,10 @@
                 }"
             >
                 <div
-                    class="bg-red-900 mix-blend-darken blur-md rounded-full w-2/3 h-2/3 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+                    class="bg-[#E0490E] mix-blend-darken blur-md rounded-full w-2/3 h-2/3 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
                 ></div>
                 <div
-                    class="bg-orange-700 w-full h-full blur-[100px] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded-full"
+                    class="bg-[#E0490E] w-full h-full blur-[100px] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded-full"
                 ></div>
             </div>
 
@@ -65,10 +65,10 @@
                 }"
             >
                 <div
-                    class="bg-red-900 mix-blend-darken blur-md rounded-full w-2/3 h-2/3 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+                    class="bg-[#E0490E] mix-blend-darken blur-md rounded-full w-2/3 h-2/3 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
                 ></div>
                 <div
-                    class="bg-orange-700 w-full h-full blur-[100px] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded-full"
+                    class="bg-[#E0490E] w-full h-full blur-[100px] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded-full"
                 ></div>
             </div>
         </div>
