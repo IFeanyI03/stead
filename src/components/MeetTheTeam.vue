@@ -19,7 +19,7 @@
                     :class="`w-2 h-2 rounded-full transition-all ${
                         activeIndex === index
                             ? 'bg-[#E0490E] w-8 md:w-2 md:h-8'
-                            : 'bg-black hover:bg-gray-400'
+                            : 'bg-black dark:bg-white hover:bg-gray-400'
                     }`"
                     :aria-label="`Go to slide ${index + 1}`"
                 />

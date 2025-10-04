@@ -1,20 +1,27 @@
 <template>
     <footer
-        class="w-full relative [mask-image:linear-gradient(to_bottom,transparent,transparent_1.5%,black_20%)]"
+        class="w-full relative [mask-image:linear-gradient(to_bottom,transparent,transparent_1.5%,black_20%)] text-black dark:text-white"
     >
-        <div class="glass w-full h-full"></div>
+        <div class="glass w-full h-full dark:invert"></div>
+
         <div
             class="w-[92.1875%] mx-auto h-full flex items-center md:items-start flex-col py-[76px] pb-[38px] gap-10 md:gap-[136px]"
         >
             <div
                 class="flex w-full flex-col gap-10 md:flex-row justify-between items-center md:items-start"
             >
-                <SteadLogo fill="black" />
+                <SteadLogo
+                    :className="[
+                        'w-[103.21px] h-[11.62px] lg:h-[34.95px] md:w-[269.01px]',
+                    ]"
+                    :fill="isDarkMode ? 'white' : 'black'"
+                />
                 <FooterLinkColumn title="Ecosystem" :links="ecosystemLinks" />
                 <FooterLinkColumn title="Company" :links="companyLinks" />
                 <FooterLinkColumn title="Social" :links="socialLinks" />
                 <FooterLinkColumn title="Contact Us" :links="legalLinks" />
             </div>
+
             <div
                 class="flex w-full flex-col-reverse md:flex-row justify-between items-center gap-6"
             >
@@ -31,8 +38,37 @@
 </template>
 
 <script setup>
-import { GlassPattern, SteadLogo } from "../assets/Icons.vue";
+import { ref, onMounted, onUnmounted } from "vue";
+import { SteadLogo } from "../assets/Icons.vue"; // Only keep necessary imports
 
+// --- THEME LOGIC: Detects and sets theme status (REQUIRED for dark/light mode functionality) ---
+const isDarkMode = ref(false);
+let mediaQuery;
+
+const updateTheme = (event) => {
+    isDarkMode.value = event
+        ? event.matches
+        : window.matchMedia("(prefers-color-scheme: dark)").matches;
+};
+
+// Simplified Logo Fill Logic for the static footer
+// The footer text is set to black in light mode (default) and white in dark mode.
+const getLogoFill = (isDarkMode) => {
+    return isDarkMode ? "white" : "black";
+};
+
+// --- LIFECYCLE HOOKS for Theme ---
+onMounted(() => {
+    mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+    updateTheme();
+    mediaQuery.addEventListener("change", updateTheme);
+});
+
+onUnmounted(() => {
+    mediaQuery.removeEventListener("change", updateTheme);
+});
+
+// --- STATIC DATA AND SUB-COMPONENT (REQUIRED for footer content) ---
 const FooterLinkColumn = {
     props: ["title", "links"],
     template: `

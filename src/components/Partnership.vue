@@ -2,7 +2,7 @@
     <div
         class="w-full flex flex-col pb-[54px] gap-8 items-center justify-between relative h-full [mask-image:linear-gradient(to_top,transparent,transparent_5%,black_25%)]"
     >
-        <div class="glass w-full h-full"></div>
+        <div class="glass w-full h-full dark:invert"></div>
         <p class="text-[#636363] text-[24px] pt-[54px] font-bold">Trusted By</p>
         <div class="w-full h-20">
             <InfiniteLogoScroller

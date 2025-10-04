@@ -111,7 +111,7 @@
                 ${
                     activeIndex === index
                         ? 'w-8 bg-[#E0490E]'
-                        : 'w-2 bg-black hover:bg-[#636363]'
+                        : 'w-2 dark:bg-white bg-black hover:bg-[#636363]'
                 }
             `"
                 />

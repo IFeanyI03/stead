@@ -1,7 +1,7 @@
 <template>
     <div class="flex flex-col gap-6">
         <div
-            class="w-full relative px-5 py-5 md:py-5.5 md:px-5.5 border-[0.2px] bg-gray-100 rounded-[64px] h-fit border-[#FFFFFF80]"
+            class="w-full relative px-5 py-5 md:py-5.5 md:px-5.5 border-[0.2px] dark:bg-[#ffffff20] bg-gray-100 rounded-[64px] h-fit border-[#FFFFFF80]"
         >
             <div
                 class="relative h-[351px] w-full md:h-[478px] flex justify-center items-center"

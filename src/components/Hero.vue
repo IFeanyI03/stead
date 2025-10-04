@@ -1,6 +1,6 @@
 <template>
     <div
-        class="w-full bg-black h-screen md:h-213 z-10 shadow-[0px_16px_80px_0px_#00000066] overflow-clip relative flex justify-center rounded-b-[30px] md:rounded-b-[78px] text-white"
+        class="w-full bg-black text-white h-screen md:h-213 z-10 shadow-[0px_16px_80px_0px_#00000066] overflow-clip relative flex justify-center rounded-b-[30px] md:rounded-b-[78px]"
     >
         <GlassTexture />
         <div

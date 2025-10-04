@@ -1,6 +1,6 @@
 <template>
     <div
-        class="relative flex flex-col gap-16 md:gap-[104px] items-center bg-white h-fit w-full"
+        class="relative flex flex-col gap-16 md:gap-[104px] items-center bg-white dark:bg-black dark:text-white h-fit w-full"
     >
         <Header />
         <div class="flex w-full h-full flex-col">
