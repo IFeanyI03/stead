@@ -4,7 +4,7 @@
     >
         <div
             :class="[
-                'flex items-center  px-[17.5px] md:px-5 md:w-[calc(92.03%_+_40px)] w-[calc(100%_-_35px)] mx-auto justify-between md:py-[20px] h-12.5 md:h-fit rounded-[50px] transition-all duration-250 ease-in-out',
+                'flex items-center px-[17.5px] md:px-5 md:w-[calc(92.03%_+_40px)] w-[calc(100%_-_35px)] mx-auto justify-between md:py-[20px] h-12.5 md:h-fit rounded-[50px] transition-all duration-250 ease-in-out',
                 {
                     ' text-black dark:text-white bg-transparent': !scrolled,
 
