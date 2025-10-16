@@ -5,7 +5,7 @@
         ></div>
         <div class="relative w-full h-full">
             <div
-                class="absolute transition-all duration-3000 ease-in-out"
+                class="absolute transition-all duration-2000 ease-in-out"
                 :style="{
                     top: div1Style.top + 'px',
                     left: div1Style.left + 'px',
@@ -22,7 +22,7 @@
             </div>
 
             <div
-                class="absolute transition-all duration-3000 ease-in-out"
+                class="absolute transition-all duration-2000 ease-in-out"
                 :style="{
                     top: div2Style.top + 'px',
                     left: div2Style.left + 'px',
@@ -31,7 +31,7 @@
                 }"
             >
                 <div
-                    class="bg-[#E0490E] mix-blend-darken blur-md rounded-full w-2/3 h-2/3 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+                    class="bg-[#ff5411] mix-blend-darken blur-[10px] rounded-full w-2/3 h-2/3 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
                 ></div>
                 <div
                     class="bg-[#E0490E] w-full h-full blur-[100px] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded-full"
@@ -39,7 +39,7 @@
             </div>
 
             <div
-                class="absolute transition-all duration-3000 ease-in-out"
+                class="absolute transition-all duration-2000 ease-in-out"
                 :style="{
                     top: div3Style.top + 'px',
                     left: div3Style.left + 'px',
@@ -56,7 +56,7 @@
             </div>
 
             <div
-                class="absolute transition-all duration-3000 ease-in-out"
+                class="absolute transition-all duration-2000 ease-in-out"
                 :style="{
                     top: div4Style.top + 'px',
                     left: div4Style.left + 'px',
@@ -77,6 +77,7 @@
 
 <script setup>
 import { ref, onMounted, onUnmounted } from "vue";
+// Assuming GlassPattern is a component you don't need to change
 import { GlassPattern } from "../../assets/Icons.vue";
 
 const parentRef = ref(null);
@@ -85,42 +86,62 @@ const div2Style = ref({ top: 200, left: 400, size: 300 });
 const div3Style = ref({ top: 400, left: 50, size: 500 });
 const div4Style = ref({ top: 150, left: 600, size: 350 });
 
+// Define the mobile breakpoint (e.g., Tailwind's default 'sm' is 640px)
+const MOBILE_BREAKPOINT = 640;
+
 const getRandomPositionAndSize = (parentWidth, parentHeight) => {
-    const minSize = 200;
-    const maxSize = 500;
+    // Check if the current window width is less than the mobile breakpoint
+    const isMobile = window.innerWidth < MOBILE_BREAKPOINT;
+
+    // Define different size ranges for mobile and desktop
+    const desktopMinSize = 200;
+    const desktopMaxSize = 500;
+    const mobileMinSize = 100; // Smaller minimum size for mobile
+    const mobileMaxSize = 250; // Smaller maximum size for mobile
+
+    const minSize = isMobile ? mobileMinSize : desktopMinSize;
+    const maxSize = isMobile ? mobileMaxSize : desktopMaxSize;
+
+    // Ensure size calculation still fits within the parent bounds
+    // to prevent errors, though the check on (parentWidth - size) should cover this.
     const size = minSize + Math.random() * (maxSize - minSize);
-    const top = Math.random() * (parentHeight - size);
-    const left = Math.random() * (parentWidth - size);
+
+    // Fallback to prevent negative values, although parentWidth/Height should be positive
+    const availableWidth = Math.max(0, parentWidth - size);
+    const availableHeight = Math.max(0, parentHeight - size);
+
+    const top = Math.random() * availableHeight;
+    const left = Math.random() * availableWidth;
+
     return { top, left, size };
 };
 
+const animateDivs = () => {
+    if (parentRef.value) {
+        const parentWidth = parentRef.value.offsetWidth;
+        const parentHeight = parentRef.value.offsetHeight;
+
+        // Update all div styles using the screen-aware function
+        div1Style.value = getRandomPositionAndSize(parentWidth, parentHeight);
+        div2Style.value = getRandomPositionAndSize(parentWidth, parentHeight);
+        div3Style.value = getRandomPositionAndSize(parentWidth, parentHeight);
+        div4Style.value = getRandomPositionAndSize(parentWidth, parentHeight);
+    }
+};
+
 onMounted(() => {
-    const animateDivs = () => {
-        if (parentRef.value) {
-            const parentWidth = parentRef.value.offsetWidth;
-            const parentHeight = parentRef.value.offsetHeight;
-            div1Style.value = getRandomPositionAndSize(
-                parentWidth,
-                parentHeight
-            );
-            div2Style.value = getRandomPositionAndSize(
-                parentWidth,
-                parentHeight
-            );
-            div3Style.value = getRandomPositionAndSize(
-                parentWidth,
-                parentHeight
-            );
-            div4Style.value = getRandomPositionAndSize(
-                parentWidth,
-                parentHeight
-            );
-        }
-    };
-    const intervalId = setInterval(animateDivs, 3000);
-    animateDivs(); // Initial animation call
+    // Initial animation call
+    animateDivs();
+
+    // Set up the interval for continuous animation
+    const intervalId = setInterval(animateDivs, 2000);
+
+    // Also, re-run animation on window resize to immediately apply the mobile/desktop sizes
+    window.addEventListener("resize", animateDivs);
+
     onUnmounted(() => {
         clearInterval(intervalId);
+        window.removeEventListener("resize", animateDivs);
     });
 });
 </script>

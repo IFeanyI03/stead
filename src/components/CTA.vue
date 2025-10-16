@@ -1,6 +1,6 @@
 <template>
     <div
-        class="shadow-[0px_16px_80px_0px_#00000066] bg-black w-[92.1875%] overflow-clip h-fit relative rounded-[30px] text-white"
+        class="shadow-[0px_16px_80px_0px_#00000066] mt-25 lg:mt-35 bg-black w-[92.1875%] overflow-clip h-fit relative rounded-[30px] text-white"
     >
         <GlassTexture />
         <div

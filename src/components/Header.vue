@@ -4,7 +4,7 @@
     >
         <div
             :class="[
-                'flex items-center  px-[17.5px] md:px-5 md:w-[calc(92.03%_+_40px)] w-[calc(100%_-_35px)] mx-auto justify-between md:py-[20px] h-12.5 md:h-fit rounded-[50px] transition-all duration-250 ease-in-out',
+                'flex items-center  px-[17.5px] md:px-5 md:w-[calc(92.03%_+_40px)] w-[calc(100%_-_35px)] mx-auto justify-between md:py-[20px] h-12.5 md:h-fit rounded-[50px] transition-all duration-250 ease-in-out',
                 {
                     ' text-black dark:text-white bg-transparent': !scrolled,
 
@@ -33,36 +33,42 @@
                     scrolled ? 'dark:text-black text-white' : 'text-white',
                 ]"
             >
-                <a
+                <!-- Desktop Navigation Links (Now relies on router.js scrollBehavior) -->
+                <router-link
                     class="hover:text-orange-600 dark:hover:text-orange-400"
-                    href="#"
-                    >Home</a
+                    to="/"
+                    >Home</router-link
                 >
-                <a
+                <router-link
                     class="hover:text-orange-600 dark:hover:text-orange-400"
-                    href="#ecosystem"
-                    >Ecosystem</a
+                    to="/#ecosystem"
+                    >Ecosystem</router-link
                 >
-                <a
+                <router-link
                     class="hover:text-orange-600 dark:hover:text-orange-400"
-                    href="#projects"
-                    >Projects</a
+                    to="/#projects"
+                    >Projects</router-link
                 >
-                <a
+                <router-link
                     class="hover:text-orange-600 dark:hover:text-orange-400"
-                    href=""
-                    >About us</a
+                    to="/#team"
+                    >About us</router-link
                 >
-
-                <Button
-                    text="Contact Us"
-                    :className="
-                        !scrolled
-                            ? 'font-medium py-[10px] px-[35px] w-fit border-[#FFFFFF80] dark:border-[#FFFFFF80]'
-                            : 'font-medium py-[10px] px-[35px] w-fit border-[#FFFFFF80] dark:border-[#00000080]'
-                    "
-                    :is-scrolled="scrolled"
-                />
+                <router-link
+                    to="/contact"
+                    v-if="route.path !== '/contact'"
+                    class="text-base font-bold transition duration-300 ease-in-out"
+                >
+                    <Button
+                        text="Contact Us"
+                        :className="
+                            !scrolled
+                                ? 'font-medium py-[10px] px-[35px] w-fit border-[#FFFFFF80] dark:border-[#FFFFFF80]'
+                                : 'font-medium py-[10px] px-[35px] w-fit border-[#FFFFFF80] dark:border-[#00000080]'
+                        "
+                        :is-scrolled="scrolled"
+                    />
+                </router-link>
             </div>
         </div>
 
@@ -91,33 +97,38 @@
                 <div
                     class="flex flex-col justify-center items-center gap-[45px]"
                 >
-                    <a
+                    <!-- Mobile Navigation Links (Relying on router.js scrollBehavior) -->
+                    <router-link
                         class="hover:text-orange-600 dark:hover:text-orange-400"
-                        href="#"
+                        to="/"
                         @click="closeSidebar"
-                        >Home</a
+                        >Home</router-link
                     >
-                    <a
+                    <router-link
                         class="hover:text-orange-600 dark:hover:text-orange-400"
-                        href="#ecosystem"
+                        to="/#ecosystem"
                         @click="closeSidebar"
-                        >Ecosystem</a
+                        >Ecosystem</router-link
                     >
-                    <a
+                    <router-link
                         class="hover:text-orange-600 dark:hover:text-orange-400"
-                        href="#projects"
+                        to="/#projects"
                         @click="closeSidebar"
-                        >Projects</a
+                        >Projects</router-link
                     >
-                    <a
+                    <router-link
                         class="hover:text-orange-600 dark:hover:text-orange-400"
-                        href=""
+                        to="/#team"
                         @click="closeSidebar"
-                        >About us</a
+                        >About us</router-link
                     >
                 </div>
 
-                <div class="">
+                <router-link
+                    to="/contact"
+                    v-if="route.path !== '/contact'"
+                    class="text-base font-bold transition duration-300 ease-in-out"
+                >
                     <Button
                         text="Contact Us"
                         :className="
@@ -127,7 +138,7 @@
                         "
                         @click="closeSidebar"
                     />
-                </div>
+                </router-link>
             </nav>
         </div>
 
@@ -141,10 +152,12 @@
 
 <script setup>
 import { ref, onMounted, onUnmounted } from "vue";
+import { useRoute } from "vue-router";
 import { HaburgerMenu, SteadLogo } from "../assets/Icons.vue";
 import Button from "./commons/Button.vue";
 
 const isDarkMode = ref(false);
+const route = useRoute();
 let mediaQuery;
 
 const updateTheme = (event) => {

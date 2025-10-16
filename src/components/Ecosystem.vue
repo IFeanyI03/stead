@@ -1,7 +1,7 @@
 <template>
     <div
         id="ecosystem"
-        class="md:w-[92.1875%] w-[89.74%] h-fit flex items-center gap-12 flex-col"
+        class="md:w-[92.1875%] lg:pt-35 pt-25 w-[89.74%] h-fit flex items-center gap-12 flex-col"
     >
         <p class="font-bold w-fit text-[20px] md:text-[40px]">Our Ecosystem</p>
         <div class="flex flex-col gap-12">

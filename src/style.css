@@ -11,6 +11,32 @@ body {
     display: none;
 }
 
+/* --- AUTOFILLED INPUT STYLING FOR CHROME/SAFARI --- */
+/* Target autofilled inputs */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+    /* The trick is to use a large inset box-shadow to cover the default background */
+    /* Use black color, which will be covered by the input's text color in dark mode */
+    -webkit-box-shadow: 0 0 0px 1000px rgba(0, 0, 0, 0) inset !important;
+
+    /* Change the color of the autofilled text to match your dark theme */
+    -webkit-text-fill-color: white !important;
+
+    /* Ensure no background is visible beneath the text */
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+/* Optional: To make autofill work in light mode (assuming light theme is white) */
+/* You'll need to use JavaScript to detect light mode if you want true dynamic background, 
+   but for a predominantly dark design, the black shadow works well for transparency */
+
 .glass {
     position: absolute; /* Necessary for positioning the pseudo-element */
     isolation: isolate; /* Prevents pseudo-element from appearing above content */

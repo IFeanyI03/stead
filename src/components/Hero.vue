@@ -1,5 +1,6 @@
 <template>
     <div
+        id="home"
         class="w-full bg-black text-white h-screen md:h-213 z-10 shadow-[0px_16px_80px_0px_#00000066] overflow-clip relative flex justify-center rounded-b-[30px] md:rounded-b-[78px]"
     >
         <GlassTexture />
@@ -25,15 +26,26 @@
             <div
                 class="rounded-[30px] border-[0.2px] items-center flex gap-[22px] md:gap-10 pr-[23px]"
             >
-                <Button
-                    text="Contact Us"
-                    class="bg-white text-[#000] py-[10px] px-[35px] font-bold"
-                />
-                <div class="flex items-center gap-2 font-bold">
+                <router-link
+                    to="/contact"
+                    v-if="route.path !== '/contact'"
+                    class="text-base font-bold transition duration-300 ease-in-out"
+                >
+                    <Button
+                        text="Contact Us"
+                        class="bg-white text-[#000] py-[10px] px-[35px] font-bold"
+                    />
+                </router-link>
+
+                <router-link
+                    to="/#ecosystem"
+                    @click.prevent="handleHashScroll('#ecosystem')"
+                    class="flex items-center gap-2 font-bold"
+                >
                     <p class="hidden md:flex">Explore Our</p>
                     <p>Ecosystem</p>
                     <ArrowUP />
-                </div>
+                </router-link>
             </div>
         </div>
     </div>
@@ -43,4 +55,6 @@
 import { ArrowUP } from "../assets/Icons.vue";
 import Button from "./commons/Button.vue";
 import GlassTexture from "./commons/GlassTexture.vue";
+import { useRoute } from "vue-router";
+const route = useRoute();
 </script>

@@ -1,5 +1,5 @@
 <template>
-    <section class="md:w-[74.22%] w-[92.1875%]">
+    <section class="md:w-[74.22%] mt-25 lg:mt-35 w-[92.1875%]">
         <div class="w-full flex flex-col gap-12 justify-between items-center">
             <div class="text-center">
                 <h2 class="text-[20px] md:text-[40px] font-bold w-full">

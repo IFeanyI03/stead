@@ -1,7 +1,7 @@
 <template>
     <div
         id="team"
-        class="relative w-[92.1875%] mx-auto flex flex-col items-center gap-12"
+        class="relative w-[92.1875%] lg:pt-35 pt-25 mx-auto flex flex-col items-center gap-12"
         @mouseenter="isPaused = true"
         @mouseleave="isPaused = false"
     >

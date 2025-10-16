@@ -1,7 +1,7 @@
 <template>
     <div
         id="projects"
-        class="w-[92.1875%] h-fit md:h-[783.189px] flex items-center gap-12 flex-col"
+        class="w-[92.1875%] lg:pt-35 pt-25 h-fit md:min-h-[783.189px] flex items-center gap-12 flex-col"
     >
         <p class="font-bold w-fit text-[20px] md:text-[40px]">Projects</p>
         <div class="flex flex-col w-full gap-12">
@@ -23,8 +23,6 @@
             </div>
         </div>
     </div>
-
-    
 </template>
 
 <script setup>
