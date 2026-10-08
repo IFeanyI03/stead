@@ -8,11 +8,11 @@
             class="w-[92.1875%] z-20 relative mx-auto h-full flex items-center md:items-start flex-col py-[76px] pb-[38px] gap-10 md:gap-[136px]"
         >
             <div
-                class="flex w-full flex-col gap-10 md:flex-row justify-between items-center md:items-start"
+                class="flex w-full flex-col gap-10 lg:flex lg:flex-row lg:justify-between items-center md:items-start gap-8 md:gap-10"
             >
                 <SteadLogo
                     :className="[
-                        'w-[103.21px] h-[11.62px] lg:h-[34.95px] md:w-[269.01px]',
+                        'w-[140px] h-[18.7px] sm:w-[180px] sm:h-[24px] md:w-[200px] md:h-[26.8px] lg:w-[240px] lg:h-[32px]',
                     ]"
                     :fill="isDarkMode ? 'white' : 'black'"
                 />
@@ -23,7 +23,7 @@
             </div>
 
             <div
-                class="flex w-full flex-col-reverse md:flex-row justify-between items-center gap-6"
+                class="flex w-full flex-col-reverse md:flex-row justify-between items-center gap-4 md:gap-6"
             >
                 <p class="text-base">
                     Copyright &copy; {{ new Date().getFullYear() }} Stead Africa

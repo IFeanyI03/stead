@@ -8,14 +8,14 @@
             <ProjectsSlider :projectsData="projectsData" />
         </div>
         <div
-            class="flex w-[79.24%] md:flex-row flex-col gap-8 justify-between text-center"
+            class="flex w-[79.24%] md:flex-row flex-col gap-6 md:gap-8 justify-between text-center"
         >
             <div
                 v-for="stat in statItems"
                 :key="stat.label"
                 class="flex flex-col gap-2"
             >
-                <p class="text-5xl font-bold">
+                <p class="text-3xl sm:text-4xl md:text-5xl font-bold">
                     <Counter :target="parseInt(stat.value)" />
                     <span v-if="stat.value.includes('+')">+</span>
                 </p>

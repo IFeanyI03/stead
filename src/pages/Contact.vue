@@ -11,7 +11,7 @@
                 class="flex items-center flex-col gap-6"
             >
                 <!-- Input Row 1: Name, Email, Phone -->
-                <div class="flex flex-col md:flex-row gap-6 w-full">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
                     <!-- Name Input -->
                     <div
                         class="relative w-full items-center px-4 flex gap-4 border border-gray-800 focus:outline-none focus:ring-1 focus:ring-gray-500 dark:border-white rounded-[30px]"
@@ -112,7 +112,7 @@
                 <!-- Submit Button -->
                 <button
                     type="submit"
-                    class="w-full lg:w-110 hover:bg-[#E0490E] cursor-pointer hover:text-white py-4 text-lg rounded-[30px] font-bold bg-white text-black shadow-lg transition duration-300 ease-in-out"
+                    class="w-full sm:w-80 md:w-96 lg:w-110 hover:bg-[#E0490E] cursor-pointer hover:text-white py-4 text-lg rounded-[30px] font-bold bg-white text-black shadow-lg transition duration-300 ease-in-out mx-auto"
                 >
                     Submit
                 </button>

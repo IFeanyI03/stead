@@ -4,12 +4,13 @@
             <div class="flex flex-col md:flex-row gap-6 h-[722px] md:h-[500px]">
                 <div
                     @mouseenter="activeDiv = 1"
+                    @touchstart="activeDiv = 1"
                     @click="activeDiv = 1"
                     :class="[
                         'relative rounded-[42px] overflow-hidden group shadow-lg transition-all duration-300',
                         activeDiv === 1
-                            ? 'md:w-1/2 md:h-full h-1/2 w-full'
-                            : 'md:w-1/4 md:h-full h-1/4 w-full',
+                            ? 'md:w-[calc(50%-12px)] md:h-full h-1/2 w-full'
+                            : 'md:w-[calc(25%-12px)] md:h-full h-1/4 w-full',
                     ]"
                 >
                     <img
@@ -25,7 +26,7 @@
                     >
                         <p
                             :class="[
-                                'text-white text-center text-[24px] md:text-[40px] font-bold w-fit transition-opacity duration-300',
+                                'text-white text-center text-lg sm:text-xl md:text-2xl lg:text-4xl font-bold w-fit transition-opacity duration-300',
                                 activeDiv === 1 ? 'opacity-100' : 'opacity-0',
                             ]"
                         >
@@ -36,13 +37,14 @@
 
                 <div
                     @mouseenter="activeDiv = 2"
+                    @touchstart="activeDiv = 2"
                     @click="activeDiv = 2"
                     @mouseleave="activeDiv = 1"
                     :class="[
                         'relative rounded-[42px] overflow-hidden group shadow-lg transition-all duration-300',
                         activeDiv === 2
-                            ? 'md:w-1/2 md:h-full h-1/2 w-full'
-                            : 'md:w-1/4 md:h-full h-1/4 w-full',
+                            ? 'md:w-[calc(50%-12px)] md:h-full h-1/2 w-full'
+                            : 'md:w-[calc(25%-12px)] md:h-full h-1/4 w-full',
                     ]"
                 >
                     <img
@@ -58,7 +60,7 @@
                     >
                         <p
                             :class="[
-                                'text-white text-center text-[24px] md:text-[40px] font-bold w-fit transition-opacity duration-300',
+                                'text-white text-center text-lg sm:text-xl md:text-2xl lg:text-4xl font-bold w-fit transition-opacity duration-300',
                                 activeDiv === 2 ? 'opacity-100' : 'opacity-0',
                             ]"
                         >
@@ -69,13 +71,14 @@
 
                 <div
                     @mouseenter="activeDiv = 3"
+                    @touchstart="activeDiv = 3"
                     @click="activeDiv = 3"
                     @mouseleave="activeDiv = 1"
                     :class="[
                         'relative rounded-[42px] overflow-hidden group shadow-lg transition-all duration-300',
                         activeDiv === 3
-                            ? 'md:w-1/2 md:h-full h-1/2 w-full'
-                            : 'md:w-1/4 md:h-full h-1/4 w-full',
+                            ? 'md:w-[calc(50%-12px)] md:h-full h-1/2 w-full'
+                            : 'md:w-[calc(25%-12px)] md:h-full h-1/4 w-full',
                     ]"
                 >
                     <img
@@ -91,7 +94,7 @@
                     >
                         <p
                             :class="[
-                                'text-white text-center text-[24px] md:text-[40px] font-bold w-fit transition-opacity duration-300',
+                                'text-white text-center text-lg sm:text-xl md:text-2xl lg:text-4xl font-bold w-fit transition-opacity duration-300',
                                 activeDiv === 3 ? 'opacity-100' : 'opacity-0',
                             ]"
                         >

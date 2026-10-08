@@ -1,8 +1,8 @@
 <template>
-    <section class="md:w-[74.22%] mt-25 lg:mt-35 w-[92.1875%]">
+    <section class="md:w-[85%] lg:w-[74.22%] mt-25 lg:mt-35 w-[92.1875%]">
         <div class="w-full flex flex-col gap-12 justify-between items-center">
             <div class="text-center">
-                <h2 class="text-[20px] md:text-[40px] font-bold w-full">
+                <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold w-full">
                     Frequently Asked Questions
                 </h2>
             </div>
@@ -28,7 +28,7 @@ const FaqItem = {
       <button
         @click="isOpen = !isOpen"
         :class="isOpen ? 'bg-[#E0490E]' : 'bg-[#636363]'"
-        class="text-white w-full p-6.25 rounded-[30px] cursor-pointer flex justify-center items-center"
+        class="text-white w-full p-5 md:p-6 rounded-[30px] cursor-pointer flex justify-center items-center"
       >
         <span class="font-semibold text-sm sm:text-base">{{ question }}</span>
       </button>

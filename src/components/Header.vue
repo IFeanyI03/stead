@@ -4,7 +4,7 @@
     >
         <div
             :class="[
-                'flex items-center px-[17.5px] md:px-5 md:w-[calc(92.03%_+_40px)] w-[calc(100%_-_35px)] mx-auto justify-between md:py-[20px] h-12.5 md:h-fit rounded-[50px] transition-all duration-250 ease-in-out',
+                'flex items-center px-4 sm:px-6 md:px-8 md:w-[calc(92.03%_+_40px)] w-[calc(100%_-_35px)] mx-auto justify-between md:py-[20px] h-12.5 md:h-fit rounded-[50px] transition-all duration-250 ease-in-out',
                 {
                     ' text-black dark:text-white bg-transparent': !scrolled,
 
@@ -15,13 +15,13 @@
         >
             <SteadLogo
                 :className="[
-                    'w-[103.21px] h-[11.62px] lg:h-[34.95px] md:w-[269.01px]',
+                    'w-[130px] h-[17.4px] sm:w-[180px] sm:h-[24px] md:w-[200px] md:h-[26.8px] lg:w-[240px] lg:h-[32px]',
                 ]"
                 :fill="getLogoFill(scrolled, isDarkMode)"
             />
 
             <div
-                class="md:hidden flex w-fit h-fit cursor-pointer"
+                class="lg:hidden flex w-fit h-fit cursor-pointer"
                 @click="toggleSidebar"
             >
                 <HaburgerMenu :fill="getLogoFill(scrolled, isDarkMode)" />
@@ -74,7 +74,7 @@
 
         <div
             :class="[
-                'fixed top-0 right-0 h-screen w-4/5 max-w-sm dark:bg-black dark:text-white bg-white text-black p-6 shadow-xl transition-transform duration-300 ease-out md:hidden',
+                'fixed top-0 right-0 h-screen w-4/5 max-w-sm dark:bg-black dark:text-white bg-white text-black p-6 shadow-xl transition-transform duration-300 ease-out lg:hidden',
                 sidebarOpen ? 'translate-x-0' : 'translate-x-full',
             ]"
             style="z-index: 99"
@@ -144,7 +144,7 @@
 
         <div
             v-if="sidebarOpen"
-            class="fixed inset-0 z-50 md:hidden"
+            class="fixed inset-0 z-50 lg:hidden"
             @click="closeSidebar"
         ></div>
     </div>

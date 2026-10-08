@@ -7,7 +7,7 @@
     >
         <p class="text-[20px] md:text-[40px] font-bold">Meet The Team</p>
         <div
-            class="flex flex-col-reverse md:flex-row w-full md:justify-between justify-center items-center gap-8"
+            class="flex flex-col-reverse md:flex-row w-full md:justify-between justify-center items-center gap-4 md:gap-6 lg:gap-8"
         >
             <div
                 class="flex md:flex-col w-fit items-center justify-center gap-3 md:pr-4"
